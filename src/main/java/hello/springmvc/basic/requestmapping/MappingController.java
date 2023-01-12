@@ -5,12 +5,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 요청 매핑
+ */
 @RestController
 public class MappingController {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-    @RequestMapping(value = "/hello-basic", method = RequestMethod.GET)
+    /**
+     * 기본 요청
+     * /hello-basic, /hello-basic/ 둘 다 허용
+     * HTTP 메소드 모두 허용 GET, HEAD, POST, PUT, PATCH, DELETE
+     */
+    @RequestMapping(value = "/hello-basic")
     public String helloBasic() {
         log.info("helloBasic");
         return "ok";
@@ -67,7 +75,7 @@ public class MappingController {
      * params="mode!=debug" (! = )
      * params = {"mode=debug","data=good"}
      */
-    @GetMapping(value = "/mapping-param", params = "mode=debug")
+    @GetMapping(value = "/mapping-param", params = "mode=debug") // localhost:8080/mapping-param?mode=debug
     public String mappingParam() {
         log.info("mappingParam");
         return "ok";

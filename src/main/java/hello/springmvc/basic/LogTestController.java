@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LogTestController {
     private final Logger log = LoggerFactory.getLogger(getClass()); // LogTestController.class 가능
 
-    @RequestMapping("log-test")
+    @RequestMapping("/log-test")
     public String logTest() {
         String name = "Spring";
 
